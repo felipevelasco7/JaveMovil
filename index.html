@@ -7,6 +7,21 @@
   </title>
   <script src="https://cdn.tailwindcss.com">
   </script>
+       <!-- formato colores -->
+       <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                javeBlue: '#1E2141',      // Azul oscuro base
+                javeYellow: '#FFE100',    // Amarillo brillante
+                javeWhite: '#FFFFFF',
+                javeGray: '#F4F4F4',
+              }
+            }
+          }
+        }
+      </script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
@@ -19,160 +34,142 @@
 
  <body class="bg-gray-50 min-h-screen flex flex-col">
   <!-- Header / Navbar -->
-  <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-50">
+  <header class="bg-javeBlue text-white shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <a class="flex items-center space-x-3 cursor-pointer" onclick="mostrarSeccion('home')">
-            <img alt="Logo Jave Móvil" class="w-10 h-10 rounded-full" src="https://i.pinimg.com/474x/a1/f0/f2/a1f0f236f92d39a65d2211c23e6dfbaf.jpg" width="50" />
-            <span class="font-semibold text-xl tracking-wide">JaveMóvil</span>
-          </a>
-          
+      <a class="flex items-center space-x-3 cursor-pointer" onclick="mostrarSeccion('home')">
+        <img alt="Logo Jave Móvil" class="w-10 h-10 rounded-full" src="https://i.pinimg.com/474x/a1/f0/f2/a1f0f236f92d39a65d2211c23e6dfbaf.jpg" width="50" />
+        <span class="font-semibold text-xl tracking-wide">JaveMóvil</span>
+      </a>
       
-      <!-- Menú en escritorio -->
       <nav class="hidden md:flex space-x-8 font-medium">
-        <button onclick="mostrarSeccion('registro')" class="hover:text-indigo-300 transition">Registro</button>
-        <button onclick="mostrarSeccion('reserva')" class="hover:text-indigo-300 transition">Reserva y pagos</button>
-        <button onclick="mostrarSeccion('seguimiento')" class="hover:text-indigo-300 transition">Seguimiento</button>
-        <button onclick="mostrarSeccion('notificaciones')" class="hover:text-indigo-300 transition">Notificaciones</button>
-        <button onclick="mostrarSeccion('atencion')" class="hover:text-indigo-300 transition">Atención</button>
+        <button onclick="mostrarSeccion('registro')" class="hover:text-javeYellow transition">Registro</button>
+        <button onclick="mostrarSeccion('reserva')" class="hover:text-javeYellow transition">Reserva y pagos</button>
+        <button onclick="mostrarSeccion('seguimiento')" class="hover:text-javeYellow transition">Seguimiento</button>
+        <button onclick="mostrarSeccion('notificaciones')" class="hover:text-javeYellow transition">Notificaciones</button>
+        <button onclick="mostrarSeccion('atencion')" class="hover:text-javeYellow transition">Atención</button>
       </nav>
   
-      <!-- Botón menú móvil -->
       <button aria-label="Abrir menú" class="md:hidden focus:outline-none focus:ring-2 focus:ring-white" id="menu-btn">
         <i class="fas fa-bars text-2xl"></i>
       </button>
     </div>
   
     <!-- Menú móvil -->
-    <nav class="hidden md:hidden bg-indigo-600 text-white px-4 pt-2 pb-4 space-y-2" id="mobile-menu">
-      <button onclick="mostrarSeccion('registro')" class="block w-full text-left py-1 hover:text-indigo-300 transition">Registro</button>
-      <button onclick="mostrarSeccion('reserva')" class="block w-full text-left py-1 hover:text-indigo-300 transition">Reservas y pagos</button>
-      <button onclick="mostrarSeccion('seguimiento')" class="block w-full text-left py-1 hover:text-indigo-300 transition">Seguimiento</button>
-      <button onclick="mostrarSeccion('notificaciones')" class="block w-full text-left py-1 hover:text-indigo-300 transition">Notificaciones</button>
-      <button onclick="mostrarSeccion('atencion')" class="block w-full text-left py-1 hover:text-indigo-300 transition">Atención</button>
+    <nav class="hidden md:hidden bg-javeBlue text-white px-4 pt-2 pb-4 space-y-2" id="mobile-menu">
+      <button onclick="mostrarSeccion('registro')" class="block w-full text-left py-1 hover:text-javeYellow transition">Registro</button>
+      <button onclick="mostrarSeccion('reserva')" class="block w-full text-left py-1 hover:text-javeYellow transition">Reservas y pagos</button>
+      <button onclick="mostrarSeccion('seguimiento')" class="block w-full text-left py-1 hover:text-javeYellow transition">Seguimiento</button>
+      <button onclick="mostrarSeccion('notificaciones')" class="block w-full text-left py-1 hover:text-javeYellow transition">Notificaciones</button>
+      <button onclick="mostrarSeccion('atencion')" class="block w-full text-left py-1 hover:text-javeYellow transition">Atención</button>
     </nav>
   </header>
+  
     
   
   <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
-   <!-- Hero Section -->
-   <section class="text-center max-w-3xl mx-auto" id="home">
-    <h1 class="text-4xl sm:text-5xl font-extrabold text-indigo-700 mb-4">
-     JaveMóvil
-    </h1>
-    <p class="text-lg sm:text-xl text-gray-700 mb-6">
-     Servicio de transporte exclusivo para estudiantes y personal de la Universidad Javeriana con monitoreo en tiempo real, Wi-Fi y puertos USB en cada bus.
-    </p>
-    <img alt="Bus moderno de transporte universitario con iconos de Wi-Fi y puertos USB visibles en el lateral" class="mx-auto rounded-lg shadow-lg" height="300" src="https://storage.googleapis.com/a1aa/image/ccf9b652-8ac5-4ffa-86e5-e41937dd2610.jpg" width="600"/>
-   </section>
+<!-- Hero Section -->
+<section class="text-center max-w-3xl mx-auto" id="home">
+  <h1 class="text-4xl sm:text-5xl font-extrabold text-javeBlue mb-4">
+    JaveMóvil
+  </h1>
+  <p class="text-lg sm:text-xl text-javeBlue mb-6">
+    Servicio de transporte exclusivo para estudiantes y personal de la Universidad Javeriana con monitoreo en tiempo real, Wi-Fi y puertos USB en cada bus.
+  </p>
+  <img alt="Bus moderno de transporte universitario" class="mx-auto rounded-lg shadow-lg" height="300" src="https://storage.googleapis.com/a1aa/image/ccf9b652-8ac5-4ffa-86e5-e41937dd2610.jpg" width="600"/>
+</section>
 
-
-   <!-- Registro y Perfil de Usuario -->
-   <section class="bg-white rounded-lg shadow-md p-8 max-w-4xl mx-auto hidden" id="registro" >
-    <h2 class="text-3xl font-semibold text-indigo-700 mb-6 text-center">
-     Registro y Perfil de Usuario
-    </h2>
-    <form class="space-y-6 max-w-xl mx-auto" novalidate="">
-     <div>
-      <label class="block text-gray-700 font-medium mb-1" for="nombre">
-       Nombre completo
-      </label>
-      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="nombre" name="nombre" placeholder="Juan Pérez" required="" type="text"/>
-     </div>
-     <div>
-      <label class="block text-gray-700 font-medium mb-1" for="email">
-       Correo electrónico institucional
-      </label>
-      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="email" name="email" placeholder="juan.perez@javeriana.edu.co" required="" type="email"/>
-     </div>
-     <div>
-      <label class="block text-gray-700 font-medium mb-1" for="idUniversitaria">
-       Identificación universitaria
-      </label>
-      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="idUniversitaria" name="idUniversitaria" placeholder="Número de identificación Javeriana" required="" type="text"/>
-     </div>
-     <div>
-      <label class="block text-gray-700 font-medium mb-1" for="rol">
-       Rol
-      </label>
-      <select class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="rol" name="rol" required="">
-       <option disabled="" selected="" value="">
-        Seleccione su rol
-       </option>
-       <option value="estudiante">
-        Estudiante
-       </option>
-       <option value="estudiante">
-        Personal de la Universidad
-       </option>
-       <option value="personal">
-        Profesor
-       </option>
+<!-- Registro y Perfil de Usuario -->
+<section class="bg-white rounded-lg shadow-md p-8 max-w-4xl mx-auto hidden" id="registro">
+  <h2 class="text-3xl font-semibold text-javeBlue mb-6 text-center">
+    Registro y Perfil de Usuario
+  </h2>
+  <form class="space-y-6 max-w-xl mx-auto" novalidate="">
+    <div>
+      <label class="block text-javeBlue font-medium mb-1" for="nombre">Nombre completo</label>
+      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow" id="nombre" name="nombre" placeholder="Juan Pérez" required type="text"/>
+    </div>
+    <div>
+      <label class="block text-javeBlue font-medium mb-1" for="email">Correo electrónico institucional</label>
+      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow" id="email" name="email" placeholder="juan.perez@javeriana.edu.co" required type="email"/>
+    </div>
+    <div>
+      <label class="block text-javeBlue font-medium mb-1" for="idUniversitaria">Identificación universitaria</label>
+      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow" id="idUniversitaria" name="idUniversitaria" placeholder="Número de identificación Javeriana" required type="text"/>
+    </div>
+    <div>
+      <label class="block text-javeBlue font-medium mb-1" for="rol">Rol</label>
+      <select class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow" id="rol" name="rol" required>
+        <option disabled selected value="">Seleccione su rol</option>
+        <option value="estudiante">Estudiante</option>
+        <option value="estudiante">Personal de la Universidad</option>
+        <option value="personal">Profesor</option>
       </select>
-     </div>
-     <button onclick="mostrarModalRegistro(); return false;" class="w-full bg-indigo-700 text-white font-semibold py-3 rounded-md hover:bg-indigo-800 transition">
-        Registrarse
-      </button>      
-    </form>
-   </section>
+    </div>
+    <button onclick="mostrarModalRegistro(); return false;" class="w-full bg-javeBlue text-white font-semibold py-3 rounded-md hover:bg-yellow-500 transition">
+      Registrarse
+    </button>
+  </form>
+</section>
 
-        <!-- Modal de Registro Exitoso -->
-        <div id="modalRegistro" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-            <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center relative">
-            <button onclick="cerrarModalRegistro()" class="absolute top-2 right-3 text-gray-600 hover:text-black text-lg">&times;</button>
-            <i class="fas fa-user-check text-green-500 text-4xl mb-4"></i>
-            <h3 class="text-xl font-semibold text-indigo-700 mb-2">¡Registro exitoso!</h3>
-            <p class="text-gray-600 mb-4">Tu perfil ha sido creado correctamente.</p>
-            <button onclick="cerrarModalRegistro()" class="bg-indigo-700 text-white px-4 py-2 rounded-md font-semibold hover:bg-indigo-800">
-                Cerrar
-            </button>
-            </div>
-        </div>
-        
-        <!-- script de Registro Exitoso -->
-        <script>
-            function mostrarModalRegistro() {
-              document.getElementById("modalRegistro").classList.remove("hidden");
-            }
-          
-            function cerrarModalRegistro() {
-              document.getElementById("modalRegistro").classList.add("hidden");
-            }
-          </script>
+<!-- Modal de Registro Exitoso -->
+<div id="modalRegistro" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center relative">
+    <button onclick="cerrarModalRegistro()" class="absolute top-2 right-3 text-gray-600 hover:text-black text-lg">&times;</button>
+    <i class="fas fa-user-check text-green-500 text-4xl mb-4"></i>
+    <h3 class="text-xl font-semibold text-javeBlue mb-2">¡Registro exitoso!</h3>
+    <p class="text-javeBlue mb-4">Tu perfil ha sido creado correctamente.</p>
+    <button onclick="cerrarModalRegistro()" class="bg-javeBlue text-white px-4 py-2 rounded-md font-semibold hover:bg-yellow-500">
+      Cerrar
+    </button>
+  </div>
+</div>
+
+<!-- script de Registro Exitoso -->
+<script>
+  function mostrarModalRegistro() {
+    document.getElementById("modalRegistro").classList.remove("hidden");
+  }
+
+  function cerrarModalRegistro() {
+    document.getElementById("modalRegistro").classList.add("hidden");
+  }
+</script>
+
           
   
 
 
    <!-- Reserva y Pagos -->
    <section class="bg-white rounded-lg shadow-md p-8 max-w-4xl mx-auto hidden" id="reserva">
-    <h2 class="text-3xl font-semibold text-indigo-700 mb-6 text-center">Reserva y Pago</h2>
+    <h2 class="text-3xl font-semibold text-javeBlue mb-6 text-center">Reserva y Pago</h2>
   
         <!-- Formulario de reserva -->
         <form class="space-y-6 max-w-xl mx-auto" novalidate="">
         <div>
             <img class="mx-auto rounded-lg shadow-lg mb-4" src="https://i.postimg.cc/pVDkV337/Captura-de-pantalla-2025-05-09-a-la-s-18-02-17.png" width="300" height="300" alt="Bus Jave Móvil"/>
-            <label for="ruta" class="block text-gray-700 font-semibold mb-1">Seleccione la ruta</label>
+            <label for="ruta" class="block text-javeBlue font-semibold mb-1">Seleccione la ruta</label>
             <select id="ruta" name="ruta" required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow"
             onchange="actualizarResumen()">
             <option disabled selected value="">Seleccione una ruta</option>
-            <option value="Cañasgordas" data-precio="5000">Ruta 1 - Cañasgordas</option>
-            <option value="Unicentro" data-precio="6000">Ruta 2 - Unicentro</option>
-            <option value="Chipichape" data-precio="7000">Ruta 3 - Chipichape</option>
-            <option value="Jamundí" data-precio="8000">Ruta 4 - Jamundí</option>
-            <option value="Universidad" data-precio="4500">Ruta 5 - Universidad</option>
+            <option value="Cañasgordas" data-precio="3500">Ruta 1 - Cañasgordas</option>
+            <option value="Unicentro" data-precio="3500">Ruta 2 - Unicentro</option>
+            <option value="Chipichape" data-precio="5500">Ruta 3 - Chipichape</option>
+            <option value="Jamundí" data-precio="5000">Ruta 4 - Jamundí</option>
+            <option value="Universidad" data-precio="4000">Ruta 5 - Universidad</option>
             </select>
         </div>
     
         <div>
-            <label for="fecha" class="block text-gray-700 font-semibold mb-1">Fecha de viaje</label>
+            <label for="fecha" class="block text-javeBlue font-semibold mb-1">Fecha de viaje</label>
             <input type="date" id="fecha" name="fecha" required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow" />
         </div>
     
         <div>
-            <label for="hora" class="block text-gray-700 font-semibold mb-1">Hora de salida</label>
+            <label for="hora" class="block text-javeBlue font-semibold mb-1">Hora de salida</label>
             <select id="hora" name="hora" required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow">
             <option disabled selected value="">Seleccione una hora</option>
             <option>06:00 AM</option>
             <option>07:00 AM</option>
@@ -185,27 +182,27 @@
         </form>
     
         <!-- Carrito resumen -->
-        <div class="bg-indigo-50 p-6 rounded-md shadow-md mt-10">
-        <h3 class="text-xl font-semibold text-indigo-700 mb-4">Resumen de Compra</h3>
+        <div class="bg-[#F5F7FF] p-6 rounded-md shadow-md mt-10">
+        <h3 class="text-xl font-semibold text-javeBlue mb-4">Resumen de Compra</h3>
         <div class="flex justify-between items-center mb-2">
             <div>
             <p id="resumenRuta" class="font-medium">🚌 Ruta: --</p>
             <p class="text-sm text-gray-600">
                 Precio por boleto:
-                <span id="resumenPrecio" class="font-semibold text-indigo-700">$0 COP</span>
+                <span id="resumenPrecio" class="font-semibold text-javeBlue">$0 COP</span>
             </p>
             </div>
             <button onclick="resetCarrito()" class="text-red-500 text-sm hover:underline">Eliminar</button>
         </div>
         <div class="flex items-center justify-between mt-4">
             <div class="flex items-center space-x-4">
-            <button onclick="decrease()" class="bg-indigo-600 text-white px-3 py-1 rounded-full font-bold">-</button>
+            <button onclick="decrease()" class="bg-javeBlue text-white px-3 py-1 rounded-full font-bold">-</button>
             <span id="cantidad" class="text-lg font-semibold">1</span>
-            <button onclick="increase()" class="bg-indigo-600 text-white px-3 py-1 rounded-full font-bold">+</button>
+            <button onclick="increase()" class="bg-javeBlue text-white px-3 py-1 rounded-full font-bold">+</button>
             </div>
             <div class="text-right">
             <p class="text-sm text-gray-600">Total</p>
-            <p id="total" class="text-lg font-bold text-indigo-800">$0 COP</p>
+            <p id="total" class="text-lg font-bold text-javeBlue">$0 COP</p>
             </div>
         </div>
         </div>
@@ -213,18 +210,18 @@
         <!-- Formulario de pago -->
         <form class="space-y-6 max-w-md mx-auto mt-10" novalidate="">
         <div>
-            <label for="tipoPago" class="block text-gray-700 font-medium mb-1">Tipo de pago</label>
+            <label for="tipoPago" class="block text-javeBlue font-medium mb-1">Tipo de pago</label>
             <select id="tipoPago" name="tipoPago" required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow">
             <option disabled selected value="">Seleccione una opción</option>
             <option value="boleto">Boleto único</option>
             <option value="suscripcion">Suscripción mensual</option>
             </select>
         </div>
         <div>
-            <label for="metodoPago" class="block text-gray-700 font-medium mb-1">Método de pago</label>
+            <label for="metodoPago" class="block text-javeBlue font-medium mb-1">Método de pago</label>
             <select id="metodoPago" name="metodoPago" required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow">
             <option disabled selected value="">Seleccione un método</option>
             <option value="tarjeta">Tarjeta de crédito/débito</option>
             <option value="paypal">PayPal</option>
@@ -233,7 +230,7 @@
         </div>
         <button type="button"
             onclick="mostrarModalPago()"
-            class="w-full bg-indigo-700 text-white font-semibold py-3 rounded-md hover:bg-indigo-800 transition">
+            class="w-full bg-javeBlue text-white font-semibold py-3 rounded-md hover:bg-javeYellow transition">
             Realizar pago
         </button>
 
@@ -242,9 +239,9 @@
             <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center relative">
             <button onclick="cerrarModalPago()" class="absolute top-2 right-3 text-gray-600 hover:text-black text-lg">&times;</button>
             <i class="fas fa-check-circle text-green-500 text-4xl mb-4"></i>
-            <h3 class="text-xl font-semibold text-indigo-700 mb-2">¡Pago Confirmado!</h3>
+            <h3 class="text-xl font-semibold text-javeBlue mb-2">¡Pago Confirmado!</h3>
             <p class="text-gray-600 mb-4">Tu tiquete ha sido registrado correctamente.</p>
-            <button onclick="cerrarModalPago()" class="bg-indigo-700 text-white px-4 py-2 rounded-md font-semibold hover:bg-indigo-800">
+            <button onclick="cerrarModalPago()" class="bg-javeBlue text-white px-4 py-2 rounded-md font-semibold hover:bg-javeYellow">
                 Cerrar
             </button>
             </div>
@@ -316,7 +313,7 @@
       
    <!-- Seguimiento en Tiempo Real -->
    <section class="bg-white rounded-lg shadow-md p-8 max-w-6xl mx-auto hidden" id="seguimiento" >
-    <h2 class="text-3xl font-semibold text-indigo-700 mb-6 text-center">
+    <h2 class="text-3xl font-semibold text-javeBlue mb-6 text-center">
      Seguimiento en Tiempo Real
     </h2>
     <div class="flex flex-col md:flex-row md:space-x-8">
@@ -324,22 +321,22 @@
       <img alt="Mapa digital mostrando la ubicación en tiempo real de un bus universitario en ruta" class="rounded-lg shadow-md w-full h-auto" height="400" src="https://support.moovitapp.com/hc/article_attachments/21011999118482" width="600"/>
      </div>
      <div class="md:w-1/2 flex flex-col justify-center space-y-4">
-      <p class="text-gray-700 text-lg">
+      <p class="text-javeBlue text-lg">
        Visualice en el mapa el recorrido en tiempo real de los buses de Jave Móvil, con tiempos estimados de llegada a cada parada.
       </p>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
+      <ul class="list-disc list-inside text-javeBlue space-y-2">
        <li>
-        <i class="fas fa-bus text-indigo-600 mr-2">
+        <i class="fas fa-bus text-javeBlue mr-2">
         </i>
         Ubicación GPS actualizada cada minuto.
        </li>
        <li>
-        <i class="fas fa-clock text-indigo-600 mr-2">
+        <i class="fas fa-clock text-javeBlue mr-2">
         </i>
         Tiempos estimados de llegada en tiempo real.
        </li>
        <li>
-        <i class="fas fa-route text-indigo-600 mr-2">
+        <i class="fas fa-route text-javeBlue mr-2">
         </i>
         Visualización de rutas activas y paradas.
        </li>
@@ -350,32 +347,32 @@
 
 <!-- Mis Compras -->
        <section id="mis-compras" class="bg-white rounded-lg shadow-md p-8 max-w-4xl mx-auto mt-12 hidden" >
-        <h2 class="text-3xl font-semibold text-indigo-700 mb-6 text-center">Mis Compras</h2>
+        <h2 class="text-3xl font-semibold text-javeBlue mb-6 text-center">Mis Compras</h2>
       
         <!-- Tiquetes activos -->
         <div>
-          <h3 class="text-xl font-medium text-indigo-600 mb-3">Tiquetes Activos</h3>
+          <h3 class="text-xl font-medium text-javeBlue mb-3">Tiquetes Activos</h3>
           <div class="space-y-4">
-            <div class="border rounded-md p-4 flex justify-between items-center bg-indigo-50">
+            <div class="border rounded-md p-4 flex justify-between items-center bg-[#F5F7FF]">
               <div>
                 <p class="font-semibold">🚌 Ruta Cañasgordas</p>
                 <p class="text-sm text-gray-600">Válido para: 10 de mayo, 06:00 AM</p>
               </div>
-              <button onclick="mostrarQR('Ruta Cañasgordas')" class="bg-indigo-700 hover:bg-indigo-800 text-white text-sm px-4 py-2 rounded-md font-semibold">Usar</button>
+              <button onclick="mostrarQR('Ruta Cañasgordas')" class="bg-javeBlue hover:bg-javeYellow text-white text-sm px-4 py-2 rounded-md font-semibold">Usar</button>
             </div>
-            <div class="border rounded-md p-4 flex justify-between items-center bg-indigo-50">
+            <div class="border rounded-md p-4 flex justify-between items-center bg-[#F5F7FF]">
               <div>
                 <p class="font-semibold">🚌 Ruta Jamundí</p>
                 <p class="text-sm text-gray-600">Válido para: 12 de mayo, 08:00 AM</p>
               </div>
-              <button onclick="mostrarQR('Ruta Jamundi')" class="bg-indigo-700 hover:bg-indigo-800 text-white text-sm px-4 py-2 rounded-md font-semibold">Usar</button>
+              <button onclick="mostrarQR('Ruta Jamundi')" class="bg-javeBlue hover:bg-javeYellow text-white text-sm px-4 py-2 rounded-md font-semibold">Usar</button>
             </div>
           </div>
         </div>
       
         <!-- Tiquetes pasados -->
         <div class="mt-8">
-          <h3 class="text-xl font-medium text-gray-700 mb-3">Historial de Tiquetes</h3>
+          <h3 class="text-xl font-medium text-javeBlue mb-3">Historial de Tiquetes</h3>
           <div class="space-y-4">
             <div class="border rounded-md p-4 flex justify-between items-center bg-gray-100">
               <div>
@@ -398,7 +395,7 @@
         <div id="modalQR" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
             <div class="bg-white p-6 rounded-lg max-w-sm w-full text-center shadow-xl relative">
             <button onclick="cerrarQR()" class="absolute top-2 right-3 text-gray-600 hover:text-black text-lg">&times;</button>
-            <h3 class="text-xl font-semibold text-indigo-700 mb-4">Tu QR de viaje</h3>
+            <h3 class="text-xl font-semibold text-javeBlue mb-4">Tu QR de viaje</h3>
             <img src="https://borealtech.com/wp-content/uploads/2018/10/codigo-qr-1024x1024-1.jpg" alt="QR de viaje" class="mx-auto w-48 h-48 mb-4" />
             <p class="text-sm text-gray-500">Preséntalo al subir al bus</p>
             </div>
@@ -407,18 +404,18 @@
 
    <!-- Notificaciones y Alertas -->
    <section class="bg-white rounded-lg shadow-md p-8 max-w-4xl mx-auto hidden" id="notificaciones" >
-    <h2 class="text-3xl font-semibold text-indigo-700 mb-6 text-center">
+    <h2 class="text-3xl font-semibold text-javeBlue mb-6 text-center">
      Notificaciones y Alertas
     </h2>
     <div class="space-y-4 max-w-xl mx-auto">
-     <div class="flex items-center space-x-4 bg-indigo-50 border border-indigo-200 rounded-md p-4">
-      <i class="fas fa-exclamation-circle text-indigo-600 text-2xl">
+     <div class="flex items-center space-x-4 bg-[#F5F7FF] border border-javeYellow rounded-md p-4">
+      <i class="fas fa-exclamation-circle text-javeBlue text-2xl">
       </i>
       <div>
-       <p class="font-semibold text-indigo-700">
+       <p class="font-semibold text-javeBlue">
         Cambio de ruta
        </p>
-       <p class="text-gray-700">
+       <p class="text-javeBlue">
         La ruta 3 tendrá un desvío temporal el próximo lunes 10 de julio.
        </p>
        <time class="text-sm text-gray-500">
@@ -426,14 +423,14 @@
        </time>
       </div>
      </div>
-     <div class="flex items-center space-x-4 bg-indigo-50 border border-indigo-200 rounded-md p-4">
-      <i class="fas fa-bell text-indigo-600 text-2xl">
+     <div class="flex items-center space-x-4 bg-[#F5F7FF] border border-javeYellow rounded-md p-4">
+      <i class="fas fa-bell text-javeBlue text-2xl">
       </i>
       <div>
-       <p class="font-semibold text-indigo-700">
+       <p class="font-semibold text-javeBlue">
         Recordatorio de viaje
        </p>
-       <p class="text-gray-700">
+       <p class="text-javeBlue">
         Tienes una reserva para la ruta 1 el miércoles 12 de julio a las 07:00 AM.
        </p>
        <time class="text-sm text-gray-500">
@@ -441,14 +438,14 @@
        </time>
       </div>
      </div>
-     <div class="flex items-center space-x-4 bg-indigo-50 border border-indigo-200 rounded-md p-4">
-      <i class="fas fa-info-circle text-indigo-600 text-2xl">
+     <div class="flex items-center space-x-4 bg-[#F5F7FF] border border-javeYellow rounded-md p-4">
+      <i class="fas fa-info-circle text-javeBlue text-2xl">
       </i>
       <div>
-       <p class="font-semibold text-indigo-700">
+       <p class="font-semibold text-javeBlue">
         Actualización de horarios
        </p>
-       <p class="text-gray-700">
+       <p class="text-javeBlue">
         Los horarios de la ruta 5 se ajustarán a partir del 15 de julio.
        </p>
        <time class="text-sm text-gray-500">
@@ -461,29 +458,29 @@
 
    <!-- Atención al Usuario -->
    <section class="bg-white rounded-lg shadow-md p-8 max-w-4xl mx-auto hidden" id="atencion" >
-    <h2 class="text-3xl font-semibold text-indigo-700 mb-6 text-center">
+    <h2 class="text-3xl font-semibold text-javeBlue mb-6 text-center">
      Atención al Usuario
     </h2>
     <form class="space-y-6 max-w-xl mx-auto" novalidate="">
      <div>
-      <label class="block text-gray-700 font-medium mb-1" for="nombreAtencion">
+      <label class="block text-javeBlue font-medium mb-1" for="nombreAtencion">
        Nombre completo
       </label>
-      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="nombreAtencion" name="nombreAtencion" placeholder="Juan Pérez" required="" type="text"/>
+      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow" id="nombreAtencion" name="nombreAtencion" placeholder="Juan Pérez" required="" type="text"/>
      </div>
      <div>
-      <label class="block text-gray-700 font-medium mb-1" for="emailAtencion">
+      <label class="block text-javeBlue font-medium mb-1" for="emailAtencion">
        Correo electrónico
       </label>
-      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="emailAtencion" name="emailAtencion" placeholder="juan.perez@ejemplo.com" required="" type="email"/>
+      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow" id="emailAtencion" name="emailAtencion" placeholder="juan.perez@ejemplo.com" required="" type="email"/>
      </div>
      <div>
-      <label class="block text-gray-700 font-medium mb-1" for="mensaje">
+      <label class="block text-javeBlue font-medium mb-1" for="mensaje">
        Mensaje o reporte
       </label>
-      <textarea class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-y" id="mensaje" name="mensaje" placeholder="Describa su duda o inconveniente" required="" rows="5"></textarea>
+      <textarea class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-javeYellow resize-y" id="mensaje" name="mensaje" placeholder="Describa su duda o inconveniente" required="" rows="5"></textarea>
      </div>
-     <button class="w-full bg-indigo-700 text-white font-semibold py-3 rounded-md hover:bg-indigo-800 transition" type="submit">
+     <button class="w-full bg-javeBlue text-white font-semibold py-3 rounded-md hover:bg-javeYellow transition" type="submit">
       Enviar mensaje
      </button>
     </form>
@@ -557,31 +554,32 @@
     }
   </script>
 
-    <footer class="bg-indigo-700 text-white py-6 mt-auto">
+    <footer class="bg-javeBlue text-white py-6 mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
         <p class="text-sm">
         © 2024 Jave Móvil - Universidad Javeriana. Todos los derechos reservados.
         </p>
         <div class="flex space-x-6 mt-4 md:mt-0">
-        <a aria-label="Facebook" class="hover:text-indigo-300 transition" href="#">
+        <a aria-label="Facebook" class="hover:text-javeYellow transition" href="#">
         <i class="fab fa-facebook-f">
         </i>
         </a>
-        <a aria-label="Twitter" class="hover:text-indigo-300 transition" href="#">
+        <a aria-label="Twitter" class="hover:text-javeYellow transition" href="#">
         <i class="fab fa-twitter">
         </i>
         </a>
-        <a aria-label="Instagram" class="hover:text-indigo-300 transition" href="#">
+        <a aria-label="Instagram" class="hover:text-javeYellow transition" href="#">
         <i class="fab fa-instagram">
         </i>
         </a>
-        <a aria-label="LinkedIn" class="hover:text-indigo-300 transition" href="#">
+        <a aria-label="LinkedIn" class="hover:text-javeYellow transition" href="#">
         <i class="fab fa-linkedin-in">
         </i>
         </a>
         </div>
     </div>
     </footer>
+
   
  </body>
 
@@ -589,7 +587,7 @@
 
 <!-- footer / Navbar -->
 <!-- Footer fijo con botones -->
-<footer class="fixed bottom-0 left-0 right-0 bg-indigo-700 text-white shadow-md z-50">
+<footer class="fixed bottom-0 left-0 right-0 bg-javeBlue text-white shadow-md z-50">
     <div class="max-w-7xl mx-auto px-4 py-2 flex justify-around items-center">
       
       <!-- <button onclick="mostrarSeccion('direcciones')" class="flex flex-col items-center hover:text-indigo-200 transition">
